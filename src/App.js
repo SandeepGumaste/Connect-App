@@ -30,7 +30,7 @@ function App() {
   return (
     <div className="sm:grid sm:pt-20 place-content-center">
       <div className=" flex flex-col sm:border sm:rounded-box shadow-lg sm:w-96 overflow-hidden">
-        <h1 className="text-4xl w-full bg-primary text-white text-center pt-3 pb-3">
+        <h1 className="text-4xl w-full bg-primary text-gray-300 text-center pt-3 pb-3">
           Connect+
         </h1>
         <Tabs add={add} setAdd={setAdd} />
@@ -44,11 +44,15 @@ function App() {
         )}
         {!add && (
           <div className="px-5 pb-5">
-            <div className="collapse border rounded-box border-base-300 collapse-open text-white">
+            <div className="collapse border rounded-box border-base-300 collapse-open text-gray-300">
               <div className="collapse-title text-xl font-medium">Result</div>
               <div className="collapse-content">
                 {connection !== null ? (
-                  <p>{connection.join(" > ")}</p>
+                  connection.length > 1 ? (
+                    <p>{connection.join(" > ")}</p>
+                  ) : (
+                    <p>Not related</p>
+                  )
                 ) : (
                   <p>Once you search, your search result will appear here</p>
                 )}
