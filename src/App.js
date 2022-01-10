@@ -45,7 +45,7 @@ function App() {
         {!add && (
           <div className="px-5 pb-5">
             <div className="collapse border rounded-box border-base-300 collapse-open text-gray-300">
-              <div className="collapse-title text-xl font-medium">Result</div>
+              <div className="collapse-title text-xl font-medium">Degree of Separation</div>
               <div className="collapse-content">
                 {connection !== null ? (
                   connection.length > 1 ? (
