@@ -36,7 +36,7 @@ Graph.prototype.setEnd = function (name) {
   return this.end;
 };
 
-const Search = ({ people, setConnection }) => {
+const Search = ({ people, setPeople, setConnection }) => {
   const [firstName, setFirstName] = useState("");
   const [secondName, setSecondName] = useState("");
   const [allNames, setAllNames] = useState([]);
@@ -145,8 +145,19 @@ const Search = ({ people, setConnection }) => {
       <button
         className="btn btn-primary mt-6"
         onClick={() => handleSearch(firstName, secondName)}
+        disabled={people.length > 0 ? false : true}
       >
         Search
+      </button>
+      <button
+        className="btn btn-primary mt-6"
+        onClick={() => {
+          localStorage.setItem("people", []);
+          setPeople([]);
+          setConnection(null);
+        }}
+      >
+        Delete people data
       </button>
     </div>
   );

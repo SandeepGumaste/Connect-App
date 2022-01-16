@@ -39,6 +39,7 @@ const AddPersonForm = ({ people, setPeople }) => {
     for (let i = 0; i < people.length; i++) {
       if (people[i].personName === name) {
         people[i].friend = [...people[i].friend, secondPerson];
+        setPeople(people);
         setFirstPerson("");
         setSecondPerson("");
         return true;
@@ -47,20 +48,31 @@ const AddPersonForm = ({ people, setPeople }) => {
     return false;
   };
 
-  const addConnection = (name) => {
+  const addConnection = (name, friendName) => {
     if (formCheck()) {
+      let newPeople = [...people];
       if (!personCheck(name)) {
-        const newPeople = [
-          ...people,
+        newPeople = [
+          ...newPeople,
           {
-            personName: firstPerson,
-            [relationship]: [secondPerson],
+            personName: name,
+            [relationship]: [friendName],
           },
         ];
-        setPeople(newPeople);
-        setFirstPerson("");
-        setSecondPerson("");
       }
+      if (!personCheck(friendName)) {
+        newPeople = [
+          ...newPeople,
+          {
+            personName: friendName,
+            [relationship]: [name],
+          },
+        ];
+      }
+      localStorage.setItem("people", JSON.stringify(newPeople));
+      setPeople(newPeople);
+      setFirstPerson("");
+      setSecondPerson("");
     }
   };
   return (
@@ -107,7 +119,7 @@ const AddPersonForm = ({ people, setPeople }) => {
       </select>
       <button
         className="btn btn-primary mt-6"
-        onClick={() => addConnection(firstPerson)}
+        onClick={() => addConnection(firstPerson, secondPerson)}
       >
         Add
       </button>

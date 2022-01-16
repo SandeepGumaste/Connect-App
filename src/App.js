@@ -36,6 +36,7 @@ function App() {
             people={people}
             connection={connection}
             setConnection={setConnection}
+            setPeople={setPeople}
           />
         )}
         {!add && (
