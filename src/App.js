@@ -1,31 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import AddPersonForm from "./components/AddPersonForm";
 import Search from "./components/Search";
 import Tabs from "./components/Tabs";
 
 function App() {
-  const [people, setPeople] = useState([
-    {
-      personName: "Aayushi",
-      friend: ["Sameer", "Sameer"],
-    },
-    {
-      personName: "Bhaskar",
-      friend: ["Aayushi", "Shanti Kumar Saha"],
-    },
-    {
-      personName: "Kamalnath Sharma",
-      friend: ["Sameer"],
-    },
-    {
-      personName: "Shanti Kumar Saha",
-      friend: ["Kamalnath Sharma"],
-    },
-  ]);
+  const getPeople = () => {
+    let newPeople = localStorage.getItem("people");
+    if (newPeople) {
+      return JSON.parse(newPeople);
+    } else {
+      return [];
+    }
+  };
+  const [people, setPeople] = useState(getPeople());
   const [add, setAdd] = useState(false);
 
   const [connection, setConnection] = useState(null);
+
+  useEffect(() => {
+    localStorage.setItem("people", JSON.stringify(people));
+    console.log(people);
+  }, [people]);
 
   return (
     <div className="sm:grid sm:pt-20 place-content-center">
@@ -45,7 +41,9 @@ function App() {
         {!add && (
           <div className="px-5 pb-5">
             <div className="collapse border rounded-box border-base-300 collapse-open text-gray-300">
-              <div className="collapse-title text-xl font-medium">Degree of Separation</div>
+              <div className="collapse-title text-xl font-medium">
+                Degree of Separation
+              </div>
               <div className="collapse-content">
                 {connection !== null ? (
                   connection.length > 1 ? (

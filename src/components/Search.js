@@ -47,7 +47,7 @@ const Search = ({ people, setConnection }) => {
     for (let i = 0; i < people.length; i++) {
       const person = people[i].personName;
       peopleData.push(person);
-      const friends = people[i].friend;
+      const friends = people[i].friend ? people[i].friend : [];
       const personNode = new Node(person);
       graph.addNode(personNode);
       for (let j = 0; j < friends.length; j++) {

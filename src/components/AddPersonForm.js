@@ -75,27 +75,27 @@ const AddPersonForm = ({ people, setPeople }) => {
         </p>
       )}
       <label className="label">
-        <span className="label-text">Person 1</span>
+        <span className="label-text">Person Name</span>
       </label>
       <input
         type="text"
         placeholder="Enter a name"
-        className="input input-bordered"
+        className="input input-bordered bg-gray-700"
         value={firstPerson}
         onChange={(e) => setFirstPerson(e.target.value)}
       />
       <label className="label">
-        <span className="label-text">Person 2</span>
+        <span className="label-text">Name of the person's friend</span>
       </label>
       <input
         type="text"
         placeholder="Enter a name"
-        className="input input-bordered"
+        className="input input-bordered bg-gray-700"
         value={secondPerson}
         onChange={(e) => setSecondPerson(e.target.value)}
       />
       <select
-        className="select select-bordered mt-6"
+        className="select select-bordered bg-gray-700 mt-6"
         onChange={(e) => {
           setRelationship(e.target.value);
         }}
