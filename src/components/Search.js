@@ -152,9 +152,13 @@ const Search = ({ people, setPeople, setConnection }) => {
       <button
         className="btn btn-primary mt-6"
         onClick={() => {
-          localStorage.setItem("people", []);
-          setPeople([]);
-          setConnection(null);
+          const confirmation =
+            "Do you want to delete all the people from the list?";
+          if (window.confirm(confirmation)) {
+            localStorage.setItem("people", []);
+            setPeople([]);
+            setConnection(null);
+          }
         }}
       >
         Delete people data

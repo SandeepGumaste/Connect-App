@@ -20,7 +20,6 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("people", JSON.stringify(people));
-    console.log(people);
   }, [people]);
 
   return (
