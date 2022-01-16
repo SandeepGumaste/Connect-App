@@ -1,70 +1,60 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Connect+
 
-## Available Scripts
+It is said that all people on average are six, or fewer, social connections away from each
+other. Create a React Web App that helps you find the degree of separation between any
+two people.
+Think of it as selecting two users on Facebook and trying to see how these two people are
+connected.
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Demo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Demo video link  
+[Click here to watch the video](https://drive.google.com/file/d/1znz64pMms4RFCJv2lwm_nL6IMRbcvGYC/view?usp=sharing)
 
-### `npm test`
+## Testing the app
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* To test the app locally,
+  1. Clone this repository.
+  2. Run `npm install` in the root directory of the app.   
+  3. Run `yarn start` if you use yarn, or `npm run start` to start the app in development mode.  
+  4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.   
 
-### `npm run build`
+* To test the app online,  
+  Open [https://sg-connect.netlify.app/](https://sg-connect.netlify.app/) to view it in a new browser tab.  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Basic working of the app
+* Click on the 'Add' tab to add new people.
+* Before clicking on add, you can set the relationship between those two people by selecting from the ''Relationship' dropdown. The default value of relationship is set to 'friend' and doesn't need selecting.
+* After adding name to your list, switch to the search tab. 
+* Search button will be disabled when there are no people in your list.
+* You can delete all the people in your list by clicking on 'Delete people data' button.
+* This app can only show one degree of separation which is the shortest possible link between 2 people.
+* The search result will be displayed in the box at the bottom.  
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. Adding people
+Please note that the inputs are case sensitive.  
+Add the following names as given below.  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Sameer is a Friend of Aayushi
+2. Aayushi is a Friend of Bhaskar
+3. Sameer is a Friend of Kamalnath Sharma
+4. Kamalnath Sharma is a Friend of Shanti Kumar Saha
+5. Shanti Kumar Saha is a Friend of Bhaskar   
 
-### `npm run eject`
+### 2. Searching for a degree of separation
+1. If you select two people, let’s say Sameer and Bhaskar, the application should now show the
+degree of separation as 'Sameer > Aayushi > Bhaskar'.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. Or if you select Bhaskar and Sameer, the application should now show the
+degree of separation as 'Bhaskar > Aayushi > Sameer'.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. If you select Kamalnath Sharma and Bhaskar, the application
+should now show the degree of separation as 'Kamalnath Sharma > Shanti Kumar Saha > Bhaskar'.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Result 
+For every search, if the result is as given in the respective test condition, then the app is working correctly.   
+You can also add different names and test the app.
+ 
